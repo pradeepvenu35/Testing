@@ -1,0 +1,689 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Service for namespace Y0MXR_REFMDS_TERM_CODE_API_SRV",
+    "version": "",
+    "description": "This service is located at [http://localhost/api/](http://localhost/api/)"
+  },
+  "servers": [
+    {
+      "url": "http://localhost/api"
+    }
+  ],
+  "tags": [
+    {
+      "name": "TermCodeEntitySet"
+    },
+    {
+      "name": "LanguageSet"
+    }
+  ],
+  "paths": {
+    "/TermCodeEntitySet": {
+      "get": {
+        "summary": "Get entities from TermCodeEntitySet",
+        "tags": [
+          "TermCodeEntitySet"
+        ],
+        "parameters": [
+          {
+            "name": "$filter",
+            "in": "query",
+            "description": "Filter items by property values, see [Filtering](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=64)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/count"
+          },
+          {
+            "name": "$orderby",
+            "in": "query",
+            "description": "Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "TermCode",
+                  "TermCode desc",
+                  "LanguageId",
+                  "LanguageId desc",
+                  "StandardTerm",
+                  "StandardTerm desc",
+                  "Description",
+                  "Description desc",
+                  "Status",
+                  "Status desc",
+                  "Since",
+                  "Since desc",
+                  "OutputLanguage",
+                  "OutputLanguage desc",
+                  "InputLanguage",
+                  "InputLanguage desc",
+                  "RequesterBwn",
+                  "RequesterBwn desc",
+                  "RequesterCostCenter",
+                  "RequesterCostCenter desc",
+                  "OrderNumber",
+                  "OrderNumber desc",
+                  "CategoryNumber",
+                  "CategoryNumber desc",
+                  "AttachUrl",
+                  "AttachUrl desc",
+                  "LanguageGroup",
+                  "LanguageGroup desc",
+                  "TranslationCostCenter",
+                  "TranslationCostCenter desc",
+                  "LanguageIndex",
+                  "LanguageIndex desc",
+                  "ResponsibleTranslation",
+                  "ResponsibleTranslation desc",
+                  "StatusRemarks",
+                  "StatusRemarks desc",
+                  "StatusValidfrom",
+                  "StatusValidfrom desc",
+                  "RequestedBy",
+                  "RequestedBy desc",
+                  "ApprovedBy",
+                  "ApprovedBy desc",
+                  "ActivatedOn",
+                  "ActivatedOn desc",
+                  "ChangeRequestedBy",
+                  "ChangeRequestedBy desc",
+                  "ChangeApprovedBy",
+                  "ChangeApprovedBy desc",
+                  "ChangeActivated",
+                  "ChangeActivated desc"
+                ]
+              }
+            }
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "TermCode",
+                  "LanguageId",
+                  "StandardTerm",
+                  "Description",
+                  "Status",
+                  "Since",
+                  "OutputLanguage",
+                  "InputLanguage",
+                  "RequesterBwn",
+                  "RequesterCostCenter",
+                  "OrderNumber",
+                  "CategoryNumber",
+                  "AttachUrl",
+                  "LanguageGroup",
+                  "TranslationCostCenter",
+                  "LanguageIndex",
+                  "ResponsibleTranslation",
+                  "StatusRemarks",
+                  "StatusValidfrom",
+                  "RequestedBy",
+                  "ApprovedBy",
+                  "ActivatedOn",
+                  "ChangeRequestedBy",
+                  "ChangeApprovedBy",
+                  "ChangeActivated"
+                ]
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrieved entities",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "Wrapper",
+                  "type": "object",
+                  "properties": {
+                    "d": {
+                      "title": "Collection of TermCodeEntity",
+                      "type": "object",
+                      "properties": {
+                        "results": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/Y0MXR_REFMDS_TERM_CODE_API_SRV.TermCodeEntity"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/TermCodeEntitySet(TermCode='{TermCode}',LanguageId='{LanguageId}')": {
+      "parameters": [
+        {
+          "name": "TermCode",
+          "in": "path",
+          "required": true,
+          "description": "Term-Code",
+          "schema": {
+            "type": "string",
+            "maxLength": 6
+          }
+        },
+        {
+          "name": "LanguageId",
+          "in": "path",
+          "required": true,
+          "description": "Language ID",
+          "schema": {
+            "type": "string",
+            "maxLength": 2
+          }
+        }
+      ],
+      "get": {
+        "summary": "Get entity from TermCodeEntitySet by key",
+        "tags": [
+          "TermCodeEntitySet"
+        ],
+        "parameters": [
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "TermCode",
+                  "LanguageId",
+                  "StandardTerm",
+                  "Description",
+                  "Status",
+                  "Since",
+                  "OutputLanguage",
+                  "InputLanguage",
+                  "RequesterBwn",
+                  "RequesterCostCenter",
+                  "OrderNumber",
+                  "CategoryNumber",
+                  "AttachUrl",
+                  "LanguageGroup",
+                  "TranslationCostCenter",
+                  "LanguageIndex",
+                  "ResponsibleTranslation",
+                  "StatusRemarks",
+                  "StatusValidfrom",
+                  "RequestedBy",
+                  "ApprovedBy",
+                  "ActivatedOn",
+                  "ChangeRequestedBy",
+                  "ChangeApprovedBy",
+                  "ChangeActivated"
+                ]
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrieved entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "TermCodeEntity",
+                  "type": "object",
+                  "properties": {
+                    "d": {
+                      "$ref": "#/components/schemas/Y0MXR_REFMDS_TERM_CODE_API_SRV.TermCodeEntity"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/LanguageSet": {
+      "get": {
+        "summary": "Get entities from LanguageSet",
+        "tags": [
+          "LanguageSet"
+        ],
+        "parameters": [
+          {
+            "name": "$filter",
+            "in": "query",
+            "description": "Filter items by property values, see [Filtering](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=64)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/count"
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "LanguageId",
+                  "LanguageText"
+                ]
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrieved entities",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "Wrapper",
+                  "type": "object",
+                  "properties": {
+                    "d": {
+                      "title": "Collection of Language",
+                      "type": "object",
+                      "properties": {
+                        "results": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/Y0MXR_REFMDS_TERM_CODE_API_SRV.Language"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/LanguageSet('{LanguageId}')": {
+      "parameters": [
+        {
+          "name": "LanguageId",
+          "in": "path",
+          "required": true,
+          "description": "Language ID",
+          "schema": {
+            "type": "string",
+            "maxLength": 2
+          }
+        }
+      ],
+      "get": {
+        "summary": "Get entity from LanguageSet by key",
+        "tags": [
+          "LanguageSet"
+        ],
+        "parameters": [
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "LanguageId",
+                  "LanguageText"
+                ]
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrieved entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "Language",
+                  "type": "object",
+                  "properties": {
+                    "d": {
+                      "$ref": "#/components/schemas/Y0MXR_REFMDS_TERM_CODE_API_SRV.Language"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/$batch": {
+      "post": {
+        "summary": "Send a group of requests",
+        "description": "Group multiple requests into a single request payload, see [Batch Requests](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=152).\n\n*Please note that \"Try it out\" is not supported for this request.*",
+        "tags": [
+          "Batch Requests"
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "Batch request",
+          "content": {
+            "multipart/mixed;boundary=request-separator": {
+              "schema": {
+                "type": "string"
+              },
+              "example": "--request-separator\nContent-Type: application/http\nContent-Transfer-Encoding: binary\n\nGET TermCodeEntitySet HTTP/1.1\nAccept: application/json\n\n\n--request-separator--"
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Batch response",
+            "content": {
+              "multipart/mixed": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "--response-separator\nContent-Type: application/http\n\nHTTP/1.1 200 OK\nContent-Type: application/json\n\n{...}\n--response-separator--"
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Y0MXR_REFMDS_TERM_CODE_API_SRV.TermCodeEntity": {
+        "type": "object",
+        "properties": {
+          "TermCode": {
+            "type": "string",
+            "maxLength": 6,
+            "title": "Term-Code"
+          },
+          "LanguageId": {
+            "type": "string",
+            "maxLength": 2,
+            "title": "Language ID"
+          },
+          "StandardTerm": {
+            "type": "string",
+            "maxLength": 25,
+            "title": "Standard Term"
+          },
+          "Description": {
+            "type": "string",
+            "maxLength": 99,
+            "title": "Description"
+          },
+          "Status": {
+            "type": "string",
+            "maxLength": 2,
+            "title": "Status"
+          },
+          "Since": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492098664000)/",
+            "title": "Since (Query Parameter)"
+          },
+          "OutputLanguage": {
+            "type": "string",
+            "maxLength": 2,
+            "title": "Input Langauge (Query Parameter)"
+          },
+          "InputLanguage": {
+            "type": "string",
+            "maxLength": 2,
+            "title": "Output Language (Query Parameter)"
+          },
+          "RequesterBwn": {
+            "type": "string",
+            "maxLength": 3,
+            "title": "Requester BWN"
+          },
+          "RequesterCostCenter": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "Requester Cost Center"
+          },
+          "OrderNumber": {
+            "type": "string",
+            "maxLength": 2,
+            "title": "Order Number"
+          },
+          "CategoryNumber": {
+            "type": "string",
+            "maxLength": 11,
+            "title": "Category number"
+          },
+          "AttachUrl": {
+            "type": "string",
+            "maxLength": 255,
+            "title": "Grapics URL"
+          },
+          "LanguageGroup": {
+            "type": "string",
+            "maxLength": 2,
+            "title": "Language Group"
+          },
+          "TranslationCostCenter": {
+            "type": "string",
+            "maxLength": 10,
+            "title": "Translation Cost Center"
+          },
+          "LanguageIndex": {
+            "type": "string",
+            "maxLength": 2,
+            "title": "Language Index"
+          },
+          "ResponsibleTranslation": {
+            "type": "string",
+            "maxLength": 99,
+            "title": "Responsible Translation"
+          },
+          "StatusRemarks": {
+            "type": "string",
+            "maxLength": 255,
+            "title": "Status Remarks"
+          },
+          "StatusValidfrom": {
+            "type": "string",
+            "maxLength": 30,
+            "title": "Status valid from"
+          },
+          "RequestedBy": {
+            "type": "string",
+            "maxLength": 80,
+            "title": "Requested By"
+          },
+          "ApprovedBy": {
+            "type": "string",
+            "maxLength": 80,
+            "title": "Approved By"
+          },
+          "ActivatedOn": {
+            "type": "string",
+            "maxLength": 30,
+            "title": "Activated On"
+          },
+          "ChangeRequestedBy": {
+            "type": "string",
+            "maxLength": 80,
+            "title": "Change Requested By"
+          },
+          "ChangeApprovedBy": {
+            "type": "string",
+            "maxLength": 80,
+            "title": "Change Approved By"
+          },
+          "ChangeActivated": {
+            "type": "string",
+            "maxLength": 30,
+            "title": "Change Activated On"
+          }
+        },
+        "title": "TermCodeEntity"
+      },
+      "Y0MXR_REFMDS_TERM_CODE_API_SRV.TermCodeEntity-create": {
+        "type": "object",
+        "title": "TermCodeEntity (for create)"
+      },
+      "Y0MXR_REFMDS_TERM_CODE_API_SRV.TermCodeEntity-update": {
+        "type": "object",
+        "title": "TermCodeEntity (for update)"
+      },
+      "Y0MXR_REFMDS_TERM_CODE_API_SRV.Language": {
+        "type": "object",
+        "properties": {
+          "LanguageId": {
+            "type": "string",
+            "maxLength": 2,
+            "title": "Language ID"
+          },
+          "LanguageText": {
+            "type": "string",
+            "maxLength": 16,
+            "title": "Language Descripion"
+          }
+        },
+        "title": "Language"
+      },
+      "Y0MXR_REFMDS_TERM_CODE_API_SRV.Language-create": {
+        "type": "object",
+        "title": "Language (for create)"
+      },
+      "Y0MXR_REFMDS_TERM_CODE_API_SRV.Language-update": {
+        "type": "object",
+        "title": "Language (for update)"
+      },
+      "error": {
+        "type": "object",
+        "required": [
+          "error"
+        ],
+        "properties": {
+          "error": {
+            "type": "object",
+            "required": [
+              "code",
+              "message"
+            ],
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "object",
+                "required": [
+                  "lang",
+                  "value"
+                ],
+                "properties": {
+                  "lang": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                }
+              },
+              "innererror": {
+                "type": "object",
+                "description": "The structure of this object is service-specific"
+              }
+            }
+          }
+        }
+      }
+    },
+    "parameters": {
+      "top": {
+        "name": "$top",
+        "in": "query",
+        "description": "Show only the first n items, see [Paging - Top](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=66)",
+        "schema": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "example": 50
+      },
+      "skip": {
+        "name": "$skip",
+        "in": "query",
+        "description": "Skip the first n items, see [Paging - Skip](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
+        "schema": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "count": {
+        "name": "$inlinecount",
+        "in": "query",
+        "description": "Include count of items, see [Inlinecount](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=67)",
+        "schema": {
+          "type": "string",
+          "enum": [
+            "allpages",
+            "none"
+          ]
+        }
+      }
+    },
+    "responses": {
+      "error": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/error"
+            }
+          }
+        }
+      }
+    }
+  }
+}
